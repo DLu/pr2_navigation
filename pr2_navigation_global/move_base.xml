@@ -40,9 +40,17 @@
     <rosparam file="$(find pr2_navigation_config)/move_base/dwa_local_planner.yaml" command="load" ns="DWAPlannerROS" />
     <rosparam file="$(find pr2_navigation_config)/move_base/recovery_behaviors.yaml" command="load" />
 
+
+    <arg name="social" value="0" />
+
     <!-- Load global navigation specific parameters -->
-    <rosparam file="$(find pr2_navigation_global)/config/local_costmap_params.yaml" command="load" />
-    <rosparam file="$(find pr2_navigation_global)/config/global_costmap_params.yaml" command="load" />
+
+    <rosparam file="$(find pr2_navigation_global)/config/local_costmap_params.yaml"         command="load" unless="$(arg social)"/>
+    <rosparam file="$(find pr2_navigation_global)/config/global_costmap_params.yaml"        command="load" unless="$(arg social)"/>
+
+    <rosparam file="$(find pr2_navigation_global)/config/local_costmap_params_social.yaml"  command="load"     if="$(arg social)"/>
+    <rosparam file="$(find pr2_navigation_global)/config/global_costmap_params_social.yaml" command="load"     if="$(arg social)"/>
+
   </node>
 
 </launch>
