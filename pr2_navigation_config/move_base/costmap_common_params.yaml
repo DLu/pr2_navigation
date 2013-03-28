@@ -1,5 +1,4 @@
 transform_tolerance: 0.2
-footprint: [[-0.325, -0.325], [-0.325, 0.325], [0.325, 0.325], [0.46, 0.0], [0.325, -0.325]]
 obstacles:
     observation_sources: base_scan_marking base_scan tilt_scan ground_object_cloud
     base_scan_marking: {sensor_frame: base_laser_link, topic: /base_scan_marking, data_type: PointCloud2, expected_update_rate: 0.2,
