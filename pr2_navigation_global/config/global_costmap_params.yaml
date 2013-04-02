@@ -7,6 +7,7 @@ global_costmap:
   rolling_window: false
   plugins:
    - {name: static_map,       type: "common_costmap_plugins::StaticCostmapPlugin"}
-   - {name: obstacles,        type: "common_costmap_plugins::ObstacleCostmapPlugin"}
+   - {name: obstacles,        type: "common_costmap_plugins::VoxelCostmapPlugin"}
    - {name: foot,            type: "common_costmap_plugins::FootprintCostmapPlugin"}
    - {name: inflater,         type: "common_costmap_plugins::InflationCostmapPlugin"}
+
