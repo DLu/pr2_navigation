@@ -48,7 +48,6 @@ from pr2_msgs.srv import SetLaserTrajCmd
 from actionlib_msgs.msg import GoalStatus
 from move_base_msgs.msg import MoveBaseAction, MoveBaseGoal, MoveBaseResult, MoveBaseFeedback
 from pr2_controllers_msgs.msg import SingleJointPositionAction, SingleJointPositionGoal
-from pr2_common_action_msgs.msg import TuckArmsAction, TuckArmsGoal
 import dynamic_reconfigure.client
 from pr2_controllers_msgs.msg import PointHeadAction, PointHeadGoal
 
@@ -135,14 +134,6 @@ def execute_cb(goal):
     # check for power cable
     # TODO
 
-    # start the arms tucking
-    tuck_arms_client = actionlib.SimpleActionClient('tuck_arms', TuckArmsAction)
-    tuck_arms_client.wait_for_server()
-    tuck_goal = TuckArmsGoal()
-    tuck_goal.tuck_left=True
-    tuck_goal.tuck_right=True
-    tuck_arms_client.send_goal(tuck_goal)
-
     # start the torso lowering
     torso_client = actionlib.SimpleActionClient('torso_controller/position_joint_action', SingleJointPositionAction)
     torso_client.wait_for_server()
@@ -157,20 +148,6 @@ def execute_cb(goal):
 
     configure_laser()
     configure_head()
-
-    # wait for tuck_arms to finish. (Don't wait for torso to lower, that is a Nice To Have)
-    while not tuck_arms_client.wait_for_result(rospy.Duration(0.1)):
-        if server.is_preempt_requested():
-            if not server.is_new_goal_available():
-                tuck_arms_client.cancel_goal()
-
-    tuck_state = tuck_arms_client.get_state()
-    if tuck_state != GoalStatus.SUCCEEDED:
-        if tuck_state == GoalStatus.PREEMPTED:
-            server.set_preempted(MoveBaseResult(), "Tuck-arms preempted")
-        elif tuck_state == GoalStatus.ABORTED:
-            server.set_aborted(MoveBaseResult(), "Tuck-arms aborted")
-        return
 
     # Now everything should be ready so send the navigation goal.
     move_base_client.send_goal(goal, None, None, feedback_cb)
@@ -232,6 +209,7 @@ if __name__ == '__main__':
 
     #create the action client to move_base
     move_base_client = actionlib.SimpleActionClient('move_base', MoveBaseAction)
+
     move_base_client.wait_for_server()
     move_base_goal = MoveBaseGoal()
 
