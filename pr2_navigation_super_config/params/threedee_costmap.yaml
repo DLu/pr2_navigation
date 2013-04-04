@@ -20,9 +20,19 @@ local_costmap:
        - {name: inflater,         type: "common_costmap_plugins::InflationCostmapPlugin"}
     obstacles:
       publish_voxel_map: true
-      observation_sources: tilt_scan
+      observation_sources: tilt_scan ground_object_cloud
       tilt_scan: {sensor_frame: laser_tilt_link, topic: /tilt_scan, data_type: LaserScan, expected_update_rate: 0.2,
-                  observation_persistence: 0.2, marking: false, clearing: true, min_obstacle_height: 1.00, max_obstacle_height: 40.0}
+                  observation_persistence: 0.2, marking: false, clearing: true, min_obstacle_height: -20.00, max_obstacle_height: 40.0}
+      ground_object_cloud: {sensor_frame: laser_tilt_link, topic: /ground_object_cloud, data_type: PointCloud2, expected_update_rate: 0.2,
+                             observation_persistence: 4.6, marking: true, clearing: false, min_obstacle_height: 1, max_obstacle_height: 2.0}
+
+      origin_z: 1.0
+      z_voxels: 8
+      z_resolution: 0.1125
+      unknown_cost_value: 0
+      unknown_threshold: 8
+      mark_threshold: 0
+
   lower:
     plugins: 
        - {name: obstacles,        type: "common_costmap_plugins::VoxelCostmapPlugin"}
@@ -39,6 +49,13 @@ local_costmap:
                             observation_persistence: 4.6, marking: true, clearing: false, min_obstacle_height: -0.10, max_obstacle_height: 2.0}
       base_scan_marking: {sensor_frame: base_laser_link, topic: /base_scan_marking, data_type: PointCloud2, expected_update_rate: 0.2,
                           observation_persistence: 0.0, marking: true, clearing: false, min_obstacle_height: 0.08, max_obstacle_height: 2.0}
+      origin_z: 0.0
+      z_voxels: 8
+      z_resolution: 0.125
+      unknown_cost_value: 0
+      unknown_threshold: 8
+      mark_threshold: 0
+
 #Independent settings for the planner's costmap
 global_costmap: 
   global_frame: map
