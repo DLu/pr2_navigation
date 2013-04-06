@@ -1,0 +1,9 @@
+<launch>
+  <node pkg="rviz" type="rviz" name="$(anon rviz)" args="-d $(find pr2_navigation_global)/rviz/navigation.rviz"/>
+  <node pkg="costmap_2d" type="costmap_2d_markers" name="markers">
+    <remap from="voxel_grid" to="/move_base_node/local_costmap/upper/obstacles/voxel_grid_throttled"/>
+  </node>
+  <node pkg="costmap_2d" type="costmap_2d_markers" name="markers2">
+    <remap from="voxel_grid" to="/move_base_node/local_costmap/lower/obstacles/voxel_grid_throttled"/>
+  </node>
+</launch>
