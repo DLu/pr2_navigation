@@ -10,5 +10,5 @@
 
   <arg name="launch" default="default" />
 
-  <include file="($find pr2_navigation_super_config)/$(arg launch).launch" />
+  <include file="$(find pr2_navigation_super_config)/$(arg launch).launch" />
 </launch>
