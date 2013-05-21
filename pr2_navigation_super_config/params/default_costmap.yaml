@@ -11,9 +11,9 @@ local_costmap:
   origin_x: 0.0
   origin_y: 0.0
   plugins:
-   - {name: obstacles,        type: "common_costmap_plugins::VoxelCostmapPlugin"}
-   - {name: footy,            type: "common_costmap_plugins::FootprintCostmapPlugin"}
-   - {name: inflater,         type: "common_costmap_plugins::InflationCostmapPlugin"}
+   - {name: obstacles,        type: "costmap_2d::VoxelLayer"}
+   - {name: footy,            type: "costmap_2d::FootprintLayer"}
+   - {name: inflater,         type: "costmap_2d::InflationLayer"}
   obstacles:
     publish_voxel_map: true
     observation_sources: base_scan_marking base_scan tilt_scan ground_object_cloud
@@ -34,10 +34,10 @@ global_costmap:
   publish_frequency: 1.0
   rolling_window: false
   plugins:
-   - {name: static_map,       type: "common_costmap_plugins::StaticCostmapPlugin"}
-   - {name: obstacles,        type: "common_costmap_plugins::VoxelCostmapPlugin"}
-   - {name: foot,            type: "common_costmap_plugins::FootprintCostmapPlugin"}
-   - {name: inflater,         type: "common_costmap_plugins::InflationCostmapPlugin"}
+   - {name: static_map,       type: "costmap_2d::StaticLayer"}
+   - {name: obstacles,        type: "costmap_2d::VoxelLayer"}
+   - {name: foot,            type: "costmap_2d::FootprintLayer"}
+   - {name: inflater,         type: "costmap_2d::InflationLayer"}
 
   obstacles:
     observation_sources: base_scan_marking base_scan tilt_scan ground_object_cloud
