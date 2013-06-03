@@ -11,8 +11,8 @@ local_costmap:
   origin_x: 0.0
   origin_y: 0.0
   plugins:
-   - {name: obstacles,        type: "common_costmap_plugins::VoxelCostmapPlugin"}
-   - {name: footy,            type: "common_costmap_plugins::FootprintCostmapPlugin"}
-   - {name: inflater,         type: "common_costmap_plugins::InflationCostmapPlugin"}
+   - {name: obstacles,        type: "costmap_2d::VoxelLayer"}
+   - {name: footy,            type: "costmap_2d::FootprintLayer"}
+   - {name: inflater,         type: "costmap_2d::InflationLayer"}
   obstacles:
    publish_voxel_map: true

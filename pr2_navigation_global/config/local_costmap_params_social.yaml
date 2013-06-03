@@ -11,7 +11,7 @@ local_costmap:
   origin_x: 0.0
   origin_y: 0.0
   plugins:
-   - {name: obstacles,        type: "common_costmap_plugins::ObstacleCostmapPlugin"}
-   - {name: footy,            type: "common_costmap_plugins::FootprintCostmapPlugin"}
-   - {name: inflater,         type: "common_costmap_plugins::InflationCostmapPlugin"}
-   - {name: social,           type: "social_costmap_plugin::SocialCostmapPlugin"}
+   - {name: obstacles,        type: "costmap_2d::ObstacleLayer"}
+   - {name: footy,            type: "costmap_2d::FootprintLayer"}
+   - {name: inflater,         type: "costmap_2d::InflationLayer"}
+   - {name: social,           type: "social_costmap_plugin::SocialLayer"}
