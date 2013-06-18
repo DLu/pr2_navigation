@@ -12,6 +12,6 @@
   <!-- Bring up the tilt_laser aware version of move_base -->
   <node pkg="pr2_move_base" name="pr2_move_base_node" type="pr2_move_base.py" machine="c2" />
 
-
-  <include file="$(find pr2_navigation_global)/move_base.xml" />
+  <arg name="launch" default="default" />
+  <include file="$(find pr2_navigation_super_config)/$(arg launch).launch" />
 </launch>
