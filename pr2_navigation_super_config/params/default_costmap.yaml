@@ -12,7 +12,6 @@ local_costmap:
   origin_y: 0.0
   plugins:
    - {name: obstacles,        type: "costmap_2d::VoxelLayer"}
-   - {name: footy,            type: "costmap_2d::FootprintLayer"}
    - {name: inflater,         type: "costmap_2d::InflationLayer"}
   obstacles:
     publish_voxel_map: true
@@ -36,7 +35,6 @@ global_costmap:
   plugins:
    - {name: static_map,       type: "costmap_2d::StaticLayer"}
    - {name: obstacles,        type: "costmap_2d::VoxelLayer"}
-   - {name: foot,            type: "costmap_2d::FootprintLayer"}
    - {name: inflater,         type: "costmap_2d::InflationLayer"}
 
   obstacles:
