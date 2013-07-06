@@ -9,10 +9,8 @@ Panels:
         - /Robot Footprint1
         - /Global Plan1
         - /Planner Plan1
-        - /Planner Plan1/Status1
-        - /Costmap1
       Splitter Ratio: 0.498141
-    Tree Height: 939
+    Tree Height: 735
   - Class: rviz/Views
     Expanded:
       - /Current View1
@@ -26,7 +24,7 @@ Visualization Manager:
       Marker Topic: visualization_marker
       Name: Marker
       Namespaces:
-        {}
+        /move_base_node/local_costmap/obstacles/voxel_grid_throttled: true
       Queue Size: 100
       Value: true
     - Alpha: 1
@@ -79,11 +77,6 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        double_stereo_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         fl_caster_l_wheel_link:
           Alpha: 1
           Show Axes: false
@@ -114,26 +107,6 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        head_mount_kinect_ir_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        head_mount_kinect_rgb_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        head_mount_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        head_mount_prosilica_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         head_pan_link:
           Alpha: 1
           Show Axes: false
@@ -149,162 +122,7 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        l_elbow_flex_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        l_forearm_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        l_forearm_roll_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        l_gripper_l_finger_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        l_gripper_l_finger_tip_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        l_gripper_motor_accelerometer_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        l_gripper_palm_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        l_gripper_r_finger_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        l_gripper_r_finger_tip_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        l_shoulder_lift_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        l_shoulder_pan_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        l_upper_arm_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        l_upper_arm_roll_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        l_wrist_flex_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        l_wrist_roll_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
         laser_tilt_mount_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        r_elbow_flex_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        r_forearm_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        r_forearm_roll_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        r_gripper_l_finger_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        r_gripper_l_finger_tip_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        r_gripper_motor_accelerometer_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        r_gripper_palm_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        r_gripper_r_finger_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        r_gripper_r_finger_tip_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        r_shoulder_lift_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        r_shoulder_pan_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        r_upper_arm_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        r_upper_arm_roll_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        r_wrist_flex_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        r_wrist_roll_link:
-          Alpha: 1
-          Show Axes: false
-          Show Trail: false
-          Value: true
-        sensor_mount_link:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -328,10 +146,7 @@ Visualization Manager:
       Topic: /map
       Value: true
     - Alpha: 1
-      Autocompute Intensity Bounds:
-        Max Intensity: 4096
-        Min Intensity: 0
-        Value: true
+      Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
         Max Value: 10
         Min Value: -10
@@ -343,6 +158,10 @@ Visualization Manager:
       Color Transformer: FlatColor
       Decay Time: 0
       Enabled: true
+      Max Color: 255; 255; 255
+      Max Intensity: 4096
+      Min Color: 0; 0; 0
+      Min Intensity: 0
       Name: BaseScan
       Position Transformer: XYZ
       Queue Size: 10
@@ -352,16 +171,10 @@ Visualization Manager:
       Style: Spheres
       Topic: /base_scan_throttled
       Use Fixed Frame: true
-      Use rainbow:
-        Max Color: 255; 255; 255
-        Min Color: 0; 0; 0
-        Value: true
+      Use rainbow: true
       Value: true
     - Alpha: 1
-      Autocompute Intensity Bounds:
-        Max Intensity: 4054
-        Min Intensity: 67
-        Value: true
+      Autocompute Intensity Bounds: true
       Autocompute Value Bounds:
         Max Value: 10
         Min Value: -10
@@ -373,6 +186,10 @@ Visualization Manager:
       Color Transformer: FlatColor
       Decay Time: 0
       Enabled: false
+      Max Color: 255; 255; 255
+      Max Intensity: 4096
+      Min Color: 0; 0; 0
+      Min Intensity: 0
       Name: TiltScan
       Position Transformer: XYZ
       Queue Size: 10
@@ -382,10 +199,7 @@ Visualization Manager:
       Style: Spheres
       Topic: /tilt_scan
       Use Fixed Frame: true
-      Use rainbow:
-        Max Color: 255; 255; 255
-        Min Color: 0; 0; 0
-        Value: true
+      Use rainbow: true
       Value: false
     - Arrow Length: 0.3
       Class: rviz/PoseArray
@@ -439,19 +253,6 @@ Visualization Manager:
       Shape: Arrow
       Topic: /move_base_simple/goal
       Value: true
-    - Class: enhanced_nav_display/Costmap
-      Enabled: false
-      High Color: 255; 0; 0
-      Low Color: 0; 0; 255
-      Max Value: 255
-      Min Value: 0
-      Name: Costmap
-      Topic: /move_base_node/local_costmap/costmap
-      Use Special Value:
-        Special Color: 0; 255; 0
-        Special Value: 0
-        Value: false
-      Value: false
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
@@ -460,6 +261,7 @@ Visualization Manager:
   Tools:
     - Class: rviz/MoveCamera
     - Class: rviz/Interact
+      Hide Inactive Objects: true
     - Class: rviz/Select
     - Class: rviz/SetInitialPose
       Topic: initialpose
@@ -481,12 +283,12 @@ Visualization Manager:
 Window Geometry:
   Displays:
     collapsed: false
-  Height: 1449
+  Height: 1171
   Hide Left Dock: false
   Hide Right Dock: false
-  QMainWindow State: 000000ff00000000fd00000001000000000000010f0000052dfc0200000002fb000000100044006900730070006c00610079007301000000410000043a000000dd00fffffffb0000000a005600690065007700730100000481000000ed000000b000ffffff000005af0000052d00000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd00000001000000000000010f00000434fc0200000002fb000000100044006900730070006c00610079007301000000410000036e000000dd00fffffffb0000000a0056006900650077007301000003b5000000c0000000b000ffffff000005200000043400000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Views:
     collapsed: false
-  Width: 1734
-  X: 625
-  Y: 5
+  Width: 1589
+  X: 1440
+  Y: 0
