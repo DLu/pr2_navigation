@@ -13,6 +13,7 @@ local_costmap:
   plugins:
    - {name: obstacles,        type: "costmap_2d::VoxelLayer"}
    - {name: inflater,         type: "costmap_2d::InflationLayer"}
+   - {name: social,           type: "social_costmap_plugin::SocialLayer"}
   obstacles:
     publish_voxel_map: true
     observation_sources: base_scan_marking base_scan tilt_scan ground_object_cloud
@@ -36,6 +37,8 @@ global_costmap:
    - {name: static_map,       type: "costmap_2d::StaticLayer"}
    - {name: obstacles,        type: "costmap_2d::VoxelLayer"}
    - {name: inflater,         type: "costmap_2d::InflationLayer"}
+   - {name: social,           type: "social_costmap_plugin::SocialLayer"}
+
 
   obstacles:
     observation_sources: base_scan_marking base_scan tilt_scan ground_object_cloud
