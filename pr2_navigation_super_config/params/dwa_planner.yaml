@@ -38,3 +38,6 @@ yaw_goal_tolerance: 0.17
 
 rot_stopped_vel: 0.01
 trans_stopped_vel: 0.01
+
+publish_traj_pc: true
+publish_cost_grid_pc: true
